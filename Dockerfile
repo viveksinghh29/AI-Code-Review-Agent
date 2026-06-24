@@ -53,7 +53,7 @@ RUN mkdir -p /tmp/ai_code_review_repos reports \
  && chown -R appuser:appgroup /tmp/ai_code_review_repos reports
 
 # Copy env template (actual secrets injected at runtime via env vars)
-RUN cp .env.example .env.example
+RUN cp .env.example .env
 
 # Switch to non-root user
 USER appuser
