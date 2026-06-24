@@ -1,0 +1,56 @@
+# ── Python ───────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+.eggs/
+
+# ── Virtual Environments ─────────────────────
+venv/
+.venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# ── Environment / Secrets ────────────────────
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ── Testing ──────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+coverage.xml
+*.cover
+
+# ── IDEs ─────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Project Specific ─────────────────────────
+/tmp/ai_code_review_repos/
+reports/*.json
+
+.env
+venv/
