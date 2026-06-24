@@ -235,13 +235,13 @@ class ReportBuilder:
                 f"### `{file_review.file_name}`",
                 f"",
                 f"| | |",
-                f"|--|--|",
+                "|--|--|",
                 f"| Language | {file_review.language} |",
                 f"| Lines | {file_review.line_count} |",
                 f"| Quality score | {file_review.overall_score}/100 ({grade}) |",
                 f"| Comments | {len(file_review.comments)} |",
                 f"| Avg confidence | {file_review.avg_confidence}% |",
-                f"",
+                "",
             ]
             if file_review.summary:
                 lines += [f"> {file_review.summary}", ""]
