@@ -12,7 +12,6 @@ Design: Single-Responsibility — this module ONLY handles ingestion.
         Parsing and reviewing happen in downstream modules.
 """
 
-import os
 import re
 import shutil
 from dataclasses import dataclass, field
@@ -21,7 +20,7 @@ from pathlib import Path
 from typing import Callable, Generator, Optional
 
 import git
-from git import GitCommandError, InvalidGitRepositoryError, Repo
+from git import GitCommandError, Repo
 
 from backend.utils.config import get_config
 from backend.utils.logger import get_logger
@@ -351,7 +350,7 @@ class RepositoryIngestion:
             )
             logger.info(f"Clone successful: {owner}/{repo_name}")
             if progress_callback:
-                progress_callback(f"Clone complete ✓")
+                progress_callback("Clone complete ✓")
             return repo, clone_path
 
         except GitCommandError as exc:
@@ -463,7 +462,7 @@ class RepositoryIngestion:
         metadata = self.extract_metadata(repo, url, clone_path)
 
         if progress_callback:
-            progress_callback(f"Discovering source files…")
+            progress_callback("Discovering source files…")
         files = self.get_source_files(str(clone_path))
 
         logger.info(

@@ -27,7 +27,6 @@ Design:
 """
 
 import json
-import time
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
@@ -157,22 +156,22 @@ class ReportBuilder:
 
         # ── Header ──────────────────────────────────────────────────────────
         lines += [
-            f"# AI Code Review Report",
-            f"",
+            "# AI Code Review Report",
+            "",
             f"> **Repository:** [{meta.repo_full_name}]({meta.url})  ",
             f"> **Branch:** `{meta.default_branch}`  ",
             f"> **Reviewed at:** {result.started_at[:19].replace('T',' ')} UTC  ",
             f"> **Duration:** {result.elapsed_seconds}s  ",
             f"> **LLM:** {rev.llm_provider} / `{rev.llm_model}`  ",
-            f"",
+            "",
         ]
 
         # ── Executive Summary ────────────────────────────────────────────────
         lines += [
             "## Executive Summary",
             "",
-            f"| Metric | Value |",
-            f"|--------|-------|",
+            "| Metric | Value |",
+            "|--------|-------|",
             f"| Files reviewed | {agg.total_files} |",
             f"| Total lines | {agg.total_lines:,} |",
             f"| Functions | {agg.total_functions} |",
@@ -212,16 +211,16 @@ class ReportBuilder:
                 src  = "AST" if c.is_ast_detected else "AI"
                 lines += [
                     f"### {icon} `{c.issue_type}` — `{c.file_name}` L{c.line_number}",
-                    f"",
+                    "",
                     f"- **Severity:** {c.severity}  ",
                     f"- **Category:** {c.category}  ",
                     f"- **Confidence:** {c.confidence_score}%  ",
                     f"- **Source:** {src}  ",
-                    f"",
+                    "",
                     f"**Problem:** {c.explanation}",
-                    f"",
+                    "",
                     f"**Fix:** {c.suggested_fix}",
-                    f"",
+                    "",
                     "---",
                     "",
                 ]
@@ -233,8 +232,8 @@ class ReportBuilder:
             grade = score.grade if score else "?"
             lines += [
                 f"### `{file_review.file_name}`",
-                f"",
-                f"| | |",
+                "",
+                "| | |",
                 "|--|--|",
                 f"| Language | {file_review.language} |",
                 f"| Lines | {file_review.line_count} |",
@@ -444,7 +443,7 @@ class Orchestrator:
         try:
             # ── 1. Ingestion ─────────────────────────────────────────────────
             emit(PipelineStatus.INGESTING, "Ingestion",
-                 f"Cloning repository…", pct=2)
+                 "Cloning repository…", pct=2)
 
             metadata, files = self._ingestion.ingest(
                 url,
