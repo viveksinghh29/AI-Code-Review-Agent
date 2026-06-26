@@ -1,22 +1,4 @@
-"""
-UI Components
-=============
-Reusable Streamlit widgets for the AI Code Review Agent dashboard.
-
-Each function renders one self-contained piece of the UI:
-  - render_header()           : logo, title, subtitle
-  - render_sidebar()          : config panel, returns user settings
-  - render_repo_input()       : URL input + submit button
-  - render_progress()         : animated progress bar + live log
-  - render_repo_metadata()    : repo stats card
-  - render_summary_cards()    : KPI metric cards
-  - render_review_comment()   : expandable comment card
-  - render_file_review()      : all comments for one file
-  - render_all_reviews()      : filterable full review panel
-  - render_error()            : styled error box
-  - render_empty_state()      : placeholder before first review
-  - render_download_buttons() : Markdown + JSON download buttons
-"""
+"""UI components for rendering the AI Code Review Agent dashboard."""
 
 import streamlit as st
 from typing import Optional
