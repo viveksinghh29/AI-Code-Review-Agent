@@ -1,8 +1,5 @@
 """
 Logging Utility for AI Code Review Agent.
-
-Provides a consistent, formatted logger for every module.
-All loggers share the same handler format and respect LOG_LEVEL from config.
 """
 
 import logging
