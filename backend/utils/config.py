@@ -1,8 +1,5 @@
 """
 Configuration Management for AI Code Review Agent.
-
-Loads all settings from environment variables (.env file).
-Provides a typed, singleton Config object used throughout the app.
 """
 
 import os
