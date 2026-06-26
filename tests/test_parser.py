@@ -1,7 +1,4 @@
-"""
-Unit Tests — AST Parser (Phase 3)
-Tests: PythonASTParser, ParsedFile, FunctionInfo, ClassInfo, CodeSmell
-"""
+"""Unit tests for the AST parser and related parsing models."""
 
 import pytest
 
