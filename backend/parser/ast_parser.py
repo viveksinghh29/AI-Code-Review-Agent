@@ -1,34 +1,4 @@
-"""
-AST Parsing Engine
-==================
-Converts raw Python source code into a rich structural model using
-Python's built-in `ast` module.
-
-Extracts:
-  - Functions  (name, args, complexity, docstring, type hints, async)
-  - Classes    (name, methods, bases, docstring, class vars)
-  - Imports    (module, names, aliases, wildcard detection)
-  - Global variables
-  - Module-level docstring
-  - __main__ guard presence
-
-Detects code smells:
-  - Long functions            (> MAX_FUNCTION_LINES)
-  - Too many arguments        (> MAX_FUNCTION_ARGS)
-  - High cyclomatic complexity(> MAX_COMPLEXITY)
-  - God classes               (> MAX_CLASS_METHODS)
-  - Missing docstrings        (public functions / classes)
-  - Wildcard imports          (from x import *)
-  - Dangerous patterns        (eval, exec, pickle, shell=True …)
-  - Long lines                (> MAX_LINE_LENGTH)
-  - Deep nesting              (> MAX_NESTING_DEPTH)
-  - Mutable default arguments (def f(x=[]) …)
-  - Bare except clauses       (except: without type)
-  - TODO / FIXME comments
-
-Design: Stateless — parse() takes source text and returns a ParsedFile.
-        Thread-safe; every call creates fresh visitor instances.
-"""
+"""Parses Python source code into an AST and extracts structural insights for AI code review."""
 
 import ast
 import re
