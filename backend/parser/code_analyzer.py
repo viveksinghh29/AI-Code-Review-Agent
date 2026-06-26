@@ -1,23 +1,4 @@
-"""
-Code Analyzer
-=============
-Orchestrates the AST parser across every file in a repository and
-produces a unified, repository-level quality report.
-
-Responsibilities:
-  - Run PythonASTParser on every FileInfo (parallel via ThreadPoolExecutor)
-  - Cross-file analysis: duplicate function names, naming conventions,
-    import graph anomalies, unused-looking imports
-  - File-level quality scoring (0-100)
-  - Repository-level aggregate metrics
-  - Progress reporting for the Streamlit dashboard
-
-Design:
-  - CodeAnalyzer      : entry point — analyze_all() returns AnalysisReport
-  - QualityScorer     : converts ParsedFile signals into a 0-100 score
-  - CrossFileAnalyzer : detects patterns that span multiple files
-  - AnalysisReport    : the rich data structure consumed by Phase 5-7
-"""
+"""Analyzes repository source code to generate file-level and repository-wide quality insights."""
 
 import re
 from collections import defaultdict
