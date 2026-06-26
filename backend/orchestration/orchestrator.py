@@ -1,30 +1,4 @@
-"""
-Orchestrator
-============
-Connects every phase of the pipeline into a single, stateful workflow.
-
-Pipeline sequence:
-  Phase 2 → Ingestion   : clone repo, discover files
-  Phase 3 → Parse       : AST analysis of every file
-  Phase 4 → Analyse     : quality scores, cross-file patterns, metrics
-  Phase 5 → Review      : AI-powered comment generation
-  ────────   Report      : generate Markdown + JSON artefacts
-
-Key responsibilities:
-  - Drive the end-to-end pipeline from a single GitHub URL
-  - Broadcast real-time progress updates to the Streamlit UI
-  - Cache completed runs (keyed on repo URL) to avoid redundant API calls
-  - Build downloadable Markdown and JSON reports
-  - Surface a clean PipelineResult consumed by the dashboard
-
-Design:
-  - PipelineStatus     : enum of pipeline stages
-  - ProgressEvent      : one update broadcast to the UI
-  - PipelineResult     : the rich object the dashboard renders
-  - ReportBuilder      : assembles Markdown / JSON from PipelineResult
-  - ResultCache        : in-memory LRU cache of recent runs
-  - Orchestrator       : entry point — run() drives the whole show
-"""
+"""Orchestrates the end-to-end AI code review pipeline from repository ingestion to report generation."""
 
 import json
 from dataclasses import dataclass, field
