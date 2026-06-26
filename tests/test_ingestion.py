@@ -1,7 +1,4 @@
-"""
-Unit Tests — Repository Ingestion (Phase 2)
-Tests: URLValidator, RepositoryIngestion, FileInfo, RepositoryMetadata
-"""
+"""Unit tests for the repository ingestion module and related components."""
 
 import tempfile
 from pathlib import Path
