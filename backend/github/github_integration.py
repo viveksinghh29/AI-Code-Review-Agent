@@ -1,21 +1,4 @@
-"""
-GitHub Integration Module
-==========================
-Connects the AI Code Review Agent to GitHub APIs via PyGithub.
-
-Responsibilities:
-  - Authenticate with a GitHub personal access token
-  - Fetch repository metadata and open pull requests
-  - Post inline review comments on pull request files
-  - Create PR-level summary comments
-  - Generate formatted markdown PR summaries
-
-Classes:
-  GitHubClient        — authenticated PyGithub wrapper (lazy init)
-  PRFetcher           — fetches PR metadata + changed files
-  PRReviewPoster      — posts inline + summary comments on a PR
-  GitHubIntegration   — public facade consumed by Orchestrator / Dashboard
-"""
+"""GitHub API integration for fetching pull requests and posting AI code review comments."""
 
 import re
 from dataclasses import dataclass, field
@@ -27,10 +10,8 @@ from backend.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 # Data models
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 @dataclass
 class PRFile:
