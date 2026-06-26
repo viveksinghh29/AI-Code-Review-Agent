@@ -1,29 +1,4 @@
-"""
-AI Review Engine
-================
-Sends source code + AST context to an LLM and returns structured,
-confidence-rated review comments.
-
-Supports:
-  - Anthropic Claude  (claude-sonnet-4-20250514)
-  - OpenAI GPT        (gpt-4o-mini)
-
-Review pipeline per file:
-  1. Convert AST-detected code smells → ReviewComments (instant, no API cost)
-  2. Build a rich prompt from FileInfo + ParsedFile context
-  3. Call LLM with retry/backoff
-  4. Parse JSON response → ReviewComments
-  5. Merge, de-duplicate, sort by severity + confidence
-
-Output:  FileReview  (per file)
-         ReviewReport (full repo — all files combined)
-
-Design:
-  - LLMClient        : thin wrapper over Anthropic / OpenAI SDK
-  - PromptBuilder    : builds the system + user prompt pair
-  - ResponseParser   : parses and validates LLM JSON output
-  - AIReviewer       : orchestrates the pipeline for all files
-"""
+"""Generates AI-powered code review comments using LLMs and AST-based code analysis."""
 
 import json
 import re
