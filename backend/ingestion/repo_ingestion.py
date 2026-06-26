@@ -1,16 +1,4 @@
-"""
-Repository Ingestion Module
-============================
-Responsibilities:
-  - Validate GitHub repository URLs
-  - Clone repositories locally (shallow clone for speed)
-  - Extract repository metadata (commits, branches, stats)
-  - Discover and read all reviewable source files
-  - Filter by size, extension, and ignored paths
-
-Design: Single-Responsibility — this module ONLY handles ingestion.
-        Parsing and reviewing happen in downstream modules.
-"""
+"""Handles GitHub repository cloning, metadata extraction, and source file discovery."""
 
 import re
 import shutil
