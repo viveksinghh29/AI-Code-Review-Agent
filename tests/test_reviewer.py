@@ -1,8 +1,4 @@
-"""
-Unit Tests — AI Reviewer (Phase 5)
-Tests: ReviewComment, FileReview, ReviewReport, ResponseParser,
-       SmellConverter, PromptBuilder, AIReviewer
-"""
+"""Unit tests for the AI review engine and related review components."""
 
 import json
 import pytest
